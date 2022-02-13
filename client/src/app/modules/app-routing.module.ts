@@ -4,6 +4,7 @@ import { HomePageComponent } from '../pages/home-page/home-page.component';
 import { LoginPageComponent } from '../pages/login-page/login-page.component';
 import { MainPageComponent } from '../pages/main-page/main-page.component';
 import { RegisterPageComponent } from '../pages/register-page/register-page.component';
+import { AddArticleComponent } from '../pages/add-article/add-article.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent},
   { path: 'login', component: LoginPageComponent},
   { path: 'main', component: MainPageComponent},
+  { path: 'add-article', component: AddArticleComponent},
 ];
 
 @NgModule({

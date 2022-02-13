@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-articles-list',
@@ -23,10 +24,18 @@ export class ArticlesListComponent implements OnInit {
   }
 ];
   columnsToDisplay = ['name', 'timer', 'category', 'distance', 'current-price', 'actions'];
-  constructor() { }
+  constructor(private productsService : ProductsService) { }
   
   ngOnInit(): void {
   }
+
+  setPrice(price: number, name: string)
+  {
+
+    this.productsService.setPrice(price, name);
+  }
+
+
   get articles()
   {
     return this._articles;

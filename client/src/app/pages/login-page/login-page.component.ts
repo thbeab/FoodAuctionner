@@ -23,8 +23,6 @@ export class LoginPageComponent implements OnInit {
   myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required]],
-    phone: ['', [Validators.required]],
-    address: ['', [Validators.required]],
   });
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   constructor(public fb: FormBuilder, private user: UserService, private router: Router) {}

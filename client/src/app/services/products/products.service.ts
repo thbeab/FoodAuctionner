@@ -12,4 +12,17 @@ export class ProductsService {
   addProduct(product:Product){
     this.products.push(product);
   }
+  setPrice(price : number, name : string)
+  {
+    for (let i =0; i < this.products.length; i++)
+    {
+      if(this.products[i].name == name)
+      {
+        if (this.products[i].current < price)
+        {
+          this.products[i].current = price;
+        }
+      }
+    }
+  }
 }

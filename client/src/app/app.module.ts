@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ArticlesListComponent } from './components/articles-list/articles-list.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AddArticleComponent } from './pages/add-article/add-article.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     RegisterPageComponent,
     MainPageComponent,
     ArticlesListComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    AddArticleComponent
   ],
   imports: [
     BrowserModule,

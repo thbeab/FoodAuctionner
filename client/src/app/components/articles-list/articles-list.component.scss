@@ -24,3 +24,15 @@ tr.queue-element-row:not(.queue-expanded-row):active {
     align-items: center;
     justify-content: center;
 }
+
+.mat-row:nth-child(even){
+    background-color: lightblue;
+}
+
+.mat-row:nth-child(odd){
+    background-color:#74cebf;
+}
+
+div {
+    background-color: lightblue;
+  }
