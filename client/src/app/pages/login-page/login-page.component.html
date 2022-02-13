@@ -1,5 +1,4 @@
 
-<h1 class="centered">Créer un compte</h1>
 <mat-sidenav-container>
     <mat-sidenav-content>
       <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
@@ -10,14 +9,6 @@
         <!-- Email -->
         <mat-form-field class="example-full-width">
           <input matInput type="email" placeholder="E-mail" formControlName="email">
-        </mat-form-field>
-        <!-- Telephone -->
-        <mat-form-field class="example-full-width">
-            <input matInput type="tel" placeholder="Téléphone" formControlName="phone">
-        </mat-form-field>
-        <!-- Address -->
-        <mat-form-field>
-            <input matInput type="text" placeholder="Adresse" formControlName="address">
         </mat-form-field>
         <!-- Submit -->
         <div class="button-wrapper">

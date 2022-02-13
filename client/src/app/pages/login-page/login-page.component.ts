@@ -1,8 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { UserService } from 'src/app/services/user/user.service';
+import { UserService } from "../../services/user/user.service"
 import { Router, RouterModule } from '@angular/router';
 
 export interface Subject {
@@ -10,11 +10,11 @@ export interface Subject {
 }
 
 @Component({
-  selector: 'app-register-page',
-  templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.scss']
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss']
 })
-export class RegisterPageComponent {
+export class LoginPageComponent implements OnInit {
 
   visible = true;
   selectable = true;
@@ -23,8 +23,6 @@ export class RegisterPageComponent {
   myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required]],
-    phone: ['', [Validators.required]],
-    address: ['', [Validators.required]],
   });
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   constructor(public fb: FormBuilder, private user: UserService, private router: Router) {}
@@ -41,4 +39,5 @@ export class RegisterPageComponent {
     console.log(this.user);
     this.router.navigate(["/main"])
   }
+
 }

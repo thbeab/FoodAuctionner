@@ -14,6 +14,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
   changementDePage() {
-   this.router.navigate(['https://www.w3schools.com/w3css/w3css_templates.asp']);
+   this.router.navigate(['https://www.tutorialspoint.com/angular8/angular8_authentication_and_authorization.htm']);
   };
 }
+
