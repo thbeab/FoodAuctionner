@@ -3,6 +3,8 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { UserService } from 'src/app/services/user.service';
+import { Router, RouterModule } from '@angular/router';
+
 export interface Subject {
   name: string;
 }
@@ -25,7 +27,7 @@ export class RegisterPageComponent {
     address: ['', [Validators.required]],
   });
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  constructor(public fb: FormBuilder, private user: UserService) {}
+  constructor(public fb: FormBuilder, private user: UserService, private router: Router) {}
   ngOnInit(): void {
     this.reactiveForm()
   }
@@ -37,5 +39,6 @@ export class RegisterPageComponent {
   submitForm() {
     this.user = this.myForm.value;
     console.log(this.user);
+    this.router.navigate(["/main"])
   }
 }

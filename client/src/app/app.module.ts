@@ -8,12 +8,16 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './modules/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { ArticlesListComponent } from './components/articles-list/articles-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    MainPageComponent,
+    ArticlesListComponent
   ],
   imports: [
     BrowserModule,
