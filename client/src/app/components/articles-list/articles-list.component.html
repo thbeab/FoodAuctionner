@@ -21,6 +21,11 @@
         <td mat-cell *matCellDef="let product"> {{product.distance}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="current price">
+        <th mat-header-cell *matHeaderCellDef> Prix courant </th>
+        <td mat-cell *matCellDef="let product"> {{product.current}} </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>

@@ -3,4 +3,5 @@ export interface Product{
     timer: number;
     category: string;
     distance: number;
+    current: number;
 }
