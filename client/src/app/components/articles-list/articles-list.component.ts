@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-articles-list',
@@ -24,7 +25,13 @@ export class ArticlesListComponent implements OnInit {
   }
 ];
   columnsToDisplay = ['name', 'timer', 'category', 'distance', 'current-price', 'actions'];
-  constructor(private products: ProductsService) { }
+
+  form: FormGroup = this.fb.group({
+    price: [0, [Validators.required]],
+  }
+  );
+
+  constructor(private products: ProductsService, private fb: FormBuilder) { }
   
   ngOnInit(): void {
   }
@@ -32,17 +39,16 @@ export class ArticlesListComponent implements OnInit {
   setPrice(price: number, name: string)
   {
 
-    this.productsService.setPrice(price, name);
+    this.products.setPrice(name, price);
   }
-
 
   get articles()
   {
-    return this._articles;
+    return this.products.products;
   }
 
-  onSubmit(): void {
-    
+  onSubmit(product: string): void {
+    this.products.setPrice(product, this.form.value.price);
   }
 }
 

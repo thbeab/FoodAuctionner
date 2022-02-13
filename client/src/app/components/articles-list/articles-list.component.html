@@ -41,10 +41,14 @@
             <td mat-cell *matCellDef="let product" [attr.colspan]="columnsToDisplay.length">
                 <div class="row queue-element-detail" [@detailExpand]="product.isExpanded ? 'expanded' : 'collapsed'">
                     
-                    <form action="/main">
-                        <label for="quantity">Le prix que je propose est de :</label>
-                        <input type="number" id="numberValue" name="quantity">
-                        <input type="submit"> 
+                    <form [formGroup]="form" (ngSubmit)="onSubmit(product.name)">
+                        <mat-form-field>
+                            <input matInput type="number" placeholder="Price" formControlName="price">
+                        </mat-form-field>
+                        <!-- Submit -->
+                        <div class="button-wrapper">
+                          <button mat-flat-button color="primary" [disabled]="!form.valid">Submit</button>
+                        </div>
                     </form>
                 </div>
             </td>
