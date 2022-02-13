@@ -43,11 +43,11 @@
                     
                     <form [formGroup]="form" (ngSubmit)="onSubmit(product.name)">
                         <mat-form-field>
-                            <input matInput type="number" placeholder="Price" formControlName="price">
+                            <input matInput type="number" placeholder="Prix" formControlName="price">
                         </mat-form-field>
                         <!-- Submit -->
                         <div class="button-wrapper">
-                          <button mat-flat-button color="primary" [disabled]="!form.valid">Submit</button>
+                          <button mat-flat-button color="primary" [disabled]="!form.valid">Soumettre</button>
                         </div>
                     </form>
                 </div>
