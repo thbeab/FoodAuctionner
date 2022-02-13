@@ -4,4 +4,5 @@ export interface Product{
     category: string;
     distance: number;
     current: number;
+    isExpanded: boolean;
 }
