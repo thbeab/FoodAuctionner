@@ -1,0 +1,26 @@
+.container {
+    min-height: 100vh;
+    height: auto;
+}
+
+.justified {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.centered {
+    text-align: center;
+}
+
+.button {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.header-item {
+    margin-top: 100px;
+    justify-content: center;
+    text-align: center;
+}
