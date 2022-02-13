@@ -1,1 +1,28 @@
-<p>add-article works!</p>
+
+<h1 class="centered">Ajouter un produit</h1>
+<mat-sidenav-container>
+    <mat-sidenav-content>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+        <!-- Name -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nom" formControlName="name">
+        </mat-form-field>
+        <!-- Email -->
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Minuterie" formControlName="timer">
+        </mat-form-field>
+        <!-- Telephone -->
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Catégorie" formControlName="category">
+        </mat-form-field>
+        <!-- Address -->
+        <mat-form-field>
+            <input matInput type="number" placeholder="Distance" formControlName="distance">
+        </mat-form-field>
+        <!-- Submit -->
+        <div class="button-wrapper">
+          <button mat-flat-button color="primary" [disabled]="!myForm.valid">Submit</button>
+        </div>
+      </form>
+    </mat-sidenav-content>
+</mat-sidenav-container>
