@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { FormGroup, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UserService } from 'src/app/services/user.service';
 export interface Subject {
   name: string;
 }
@@ -18,13 +19,13 @@ export class RegisterPageComponent {
   removable = true;
   addOnBlur = true;
   myForm: FormGroup = this.fb.group({
-    name: [''],
-    email: [''],
-    phone: [''],
-    address: [''],
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    phone: ['', [Validators.required]],
+    address: ['', [Validators.required]],
   });
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  constructor(public fb: FormBuilder) {}
+  constructor(public fb: FormBuilder, private user: UserService) {}
   ngOnInit(): void {
     this.reactiveForm()
   }
@@ -32,10 +33,9 @@ export class RegisterPageComponent {
   reactiveForm() {
 
   }
- 
 
   submitForm() {
-    console.log(this.myForm.value)
+    this.user = this.myForm.value;
+    console.log(this.user);
   }
-
 }
