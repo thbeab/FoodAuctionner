@@ -24,7 +24,7 @@ export class ArticlesListComponent implements OnInit {
   }
 ];
   columnsToDisplay = ['name', 'timer', 'category', 'distance', 'current-price', 'actions'];
-  constructor(private productsService : ProductsService) { }
+  constructor(private products: ProductsService) { }
   
   ngOnInit(): void {
   }
@@ -41,6 +41,8 @@ export class ArticlesListComponent implements OnInit {
     return this._articles;
   }
 
-  
+  onSubmit(): void {
+    
+  }
 }
 
