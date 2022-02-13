@@ -1,5 +1,72 @@
-<h1> Produits disponibles </h1>
+<div class="container justified">
+    <h1 class="header-item">PAGE PRINCIPALE</h1>
+    <div class="logo"> </div> 
+    <h2 class="centered">Voici les articles actuellement disponibles sur le marché aux enchères :</h2>
+<div>
+<div>
+    <table mat-table [dataSource]="articles" class="mat-elevation-z8" multiTemplateDataRows>
+        <ng-container  matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nom</th>
+            <td mat-cell *matCellDef="let product">{{product.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="timer">
+            <th mat-header-cell *matHeaderCellDef>Temps restant (min)</th>
+            <td mat-cell *matCellDef="let product">{{product.timer}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef>Catégorie</th>
+            <td mat-cell *matCellDef="let product">{{product.category}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="distance">
+            <th mat-header-cell *matHeaderCellDef>Distance (m)</th>
+            <td mat-cell *matCellDef="let product">{{product.distance}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="current-price">
+            <th mat-header-cell *matHeaderCellDef>Prix courant ($)</th>
+            <td mat-cell *matCellDef="let product">{{product.current}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Monter les enchères</th>
+            <td mat-cell *matCellDef="let product">
+               <a mat-button href="javascript:void()" (click)="product.isExpanded = !product.isExpanded">Faire une offre</a>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let product" [attr.colspan]="columnsToDisplay.length">
+                <div class="row queue-element-detail" [@detailExpand]="product.isExpanded ? 'expanded' : 'collapsed'">
+                    <form action="/main">
+                        <label for="quantity">Le prix que je propose est de :</label>
+                        <input type="number" id="quantity" name="quantity">
+                        <input type="submit">
+                        <script>product.current = document.getElementById("quantity").value;</script>                        
+                    </form>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay;sticky: true"></tr>
+        <tr mat-row *matRowDef="let product; columns: columnsToDisplay;"
+            class="queue-element-row"
+            [class.queue-expanded-row]="product.isExpanded"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']"
+            class="queue-detail-row"></tr>
+    </table>
+</div>
+
+<!--
 <table mat-table [dataSource]="articles" class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let product"> {{product[column]}} </td>
+      </ng-container>
+    
+
     
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Nom </th>
@@ -28,4 +95,6 @@
 
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    
 </table>
+-->
