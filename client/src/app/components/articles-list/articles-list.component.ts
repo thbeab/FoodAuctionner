@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/interfaces/product';
 
 @Component({
   selector: 'app-articles-list',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articles-list.component.scss']
 })
 export class ArticlesListComponent implements OnInit {
-
+  private _articles: Product[] = [{
+    name : "Apple", timer : 30, category : "fruit", distance : 10
+  }];
+  columnsToDisplay = ['name', 'timer', 'category', 'distance'];
   constructor() { }
-
+  
   ngOnInit(): void {
   }
-
+  get articles()
+  {
+    return this._articles;
+  }
+  
 }
